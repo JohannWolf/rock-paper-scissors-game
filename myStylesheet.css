@@ -1,0 +1,105 @@
+.grid-header{grid-area: header;
+    color:black;
+    text-align: center;
+    margin-bottom: 20px;}
+.grid-rock-icon{grid-area: rock-icon;}
+.grid-rock-comp{grid-area: rock-comp;}
+.grid-player1{grid-area: player1;}
+.grid-score{grid-area:score;}
+.grid-comp{grid-area: comp;}
+.grid-scissors-icon{grid-area: scissors-icon;}
+.grid-scissors-comp{grid-area: scissors-comp;}
+.grid-paper-comp{grid-area: paper-comp;}
+.grid-paper-icon{grid-area: paper-icon;}
+.grid-result{grid-area: result;}
+.grid-footer{grid-area:footer;
+    position: relative;
+    bottom: 0px;
+}
+.grid-container {
+    display: grid;
+    height: 100vh;
+    justify-content: space-around;
+    align-content: space-around;
+    text-align:center;
+    padding:5px;
+    grid-template-areas: 
+    'header header header header header'
+    'player1 rock-icon score rock-comp comp'
+    'player1 paper-icon result paper-comp comp'
+    'player1 scissors-icon result scissors-comp comp'
+    'footer footer footer footer footer';
+}
+#rock{
+    background-color:white;
+    border-style: solid;
+    border-color: blue;
+    color: black;
+    padding: 0px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#paper{
+    background-color:white;
+    border-style: solid;
+    border-color: blue;
+    color: black;
+    padding: 0px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#scissors{
+    background-color:white;
+    border-style: solid;
+    border-color: blue;
+    color: black;
+    padding: 0px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons{
+    background-color:red;
+    border-style: solid;
+    border-color: red;
+    color: black;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    width: 100px;
+    height: 100px;
+}
+.buttons :hover{
+   color:white;
+}
+#result{
+    color:blue;
+    width: 450px;
+    height: 30px;
+}
+@keyframes compAnimation{
+    0%{color:black;
+    }
+    20%{
+        background-color:blue;
+        border-style: solid;
+        border-color: blue;
+        color: white;
+    }
+}

@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <title>Rock paper scissors game</title>
+        <link rel="stylesheet" type="text/css" href="myStylesheet.css">
+        <script src="myJS.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="utf-8">
     </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-header"><h1>Rock Paper Scissors</h1></div>
+            <div class="grid-player1"><i class="fa fa-child" style="font-size:100px;"></i></div>
+            <div class="grid-rock-icon"><button class="buttons" onclick="randomComp('rock')" type="button"><span class="fa fa-hand-rock-o" style="font-size:60px;"></span></button></div>
+            <div class="grid-paper-icon"><button class="buttons" onclick="randomComp('paper')" type="button"><span class="fa fa-hand-paper-o" style="font-size:60px;"></span></button></div>            
+            <div class="grid-scissors-icon"><button class="buttons" onclick="randomComp('scissors')" type="button"><span class="fa fa-hand-scissors-o" style="font-size:60px;"></span></button></div>
+            <div class="grid-score">Score</div>
+            <div class="grid-result"><h3 id="result"></h3></div>
+            <div class="grid-rock-comp"><span id="rock" class="fa fa-hand-rock-o" style="font-size:60px;"></span></div>
+            <div class="grid-paper-comp"><span id="paper" class="fa fa-hand-paper-o" style="font-size:60px;"></span></div>            
+            <div class="grid-scissors-comp"><span id="scissors" class="fa fa-hand-scissors-o" style="font-size:60px;"></span></div>
+            <div class="grid-comp"><i class="fa fa-desktop" style="font-size:90px;"></i></div>
+            <div class="grid-footer">footer</div>
+        </div>
+    </body>
 </html>
