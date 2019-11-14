@@ -135,11 +135,19 @@ a :visited{
 @keyframes compAnimation{
     0%{color:black;
     }
-    20%{
+    15%{
         background-color:blue;
         border-style: solid;
         border-color: blue;
         color: white;
+    }
+    90%{
+        background-color:white;
+        color: black;
+    }
+    100%{
+        background-color:white;
+        color: black;
     }
 }
 /*Responsive*/
