@@ -2,6 +2,8 @@
 let countWin=0;
 let countLose=0;
 let r=0;
+/*constant for mediaquerie*/
+const mqSmall = window.matchMedia("(max-width:768px)");
 /*function asking for players name*/
 function requestName(){
     let txt = prompt("Player Name:","Player 1");
@@ -38,7 +40,11 @@ function restartGame(click){
 /*function that shows the final result and hides icons*/
 function showResult(whoWins){
         document.getElementById("result").innerHTML=whoWins;
-        document.getElementById("result").style.fontSize="50px";
+        if(mqSmall.matches){
+            document.getElementById("result").style.fontSize="25px";
+        }else{
+            document.getElementById("result").style.fontSize="50px"; 
+        }
         document.getElementById("iconsPlayer").style.display="none";
         document.getElementById("iconsComputer").style.display="none";
 }
