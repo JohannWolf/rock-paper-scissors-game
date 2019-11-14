@@ -2,15 +2,16 @@
     color:black;
     text-align: center;
     margin-bottom: 20px;}
-.grid-rock-icon{grid-area: rock-icon;}
-.grid-rock-comp{grid-area: rock-comp;}
-.grid-player1{grid-area: player1;}
-.grid-score{grid-area:score;}
-.grid-comp{grid-area: comp;}
-.grid-scissors-icon{grid-area: scissors-icon;}
-.grid-scissors-comp{grid-area: scissors-comp;}
-.grid-paper-comp{grid-area: paper-comp;}
-.grid-paper-icon{grid-area: paper-icon;}
+.grid-start{grid-area: start;}
+.grid-player-icons{grid-area: player-icons;}
+.grid-icons-comp{grid-area: icons-comp;
+font-size:60px;}
+.grid-player1{grid-area: player1;
+font-size:90px;}
+.grid-score-player{grid-area:score-player;}
+.grid-score-computer{grid-area: score-computer;}
+.grid-comp{grid-area: comp;
+font-size:90px;}
 .grid-result{grid-area: result;}
 .grid-footer{grid-area:footer;
     position: relative;
@@ -25,11 +26,30 @@
     padding:5px;
     grid-template-areas: 
     'header header header header header'
-    'player1 rock-icon score rock-comp comp'
-    'player1 paper-icon result paper-comp comp'
-    'player1 scissors-icon result scissors-comp comp'
+    'player1 player-icons start icons-comp comp'
+    'score-player player-icons result icons-comp score-computer'
+    'score-player player-icons result icons-comp score-computer'
     'footer footer footer footer footer';
 }
+.start-buttons{
+    width: 200px;
+    margin:15px;
+}
+.score{
+    border-style: none;
+    background-color: white;
+    color: black;
+    padding: 0px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+/*computer icons-start */
 #rock{
     background-color:white;
     border-style: solid;
@@ -72,6 +92,7 @@
     align-items: center;
     justify-content: center;
 }
+/*computer icons-ends*/
 .buttons{
     background-color:red;
     border-style: solid;
@@ -84,15 +105,33 @@
     margin: 4px 2px;
     width: 100px;
     height: 100px;
+    font-size:60px;
 }
 .buttons :hover{
    color:white;
 }
 #result{
     color:blue;
-    width: 450px;
+    width: 350px;
     height: 30px;
+    font-size: 20px;
 }
+li{
+    display: inline;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+a :visited{
+    text-decoration: none;
+    color:black;
+}
+.footNote{
+    font-size:13px;
+}
+/*animation for computer icons*/
 @keyframes compAnimation{
     0%{color:black;
     }
@@ -101,5 +140,98 @@
         border-style: solid;
         border-color: blue;
         color: white;
+    }
+}
+/*Responsive*/
+@media only screen and (max-width:1024px){
+    .start-buttons{
+        width: 150px;
+        margin:15px;
+    }
+    .score{
+        width: 80px;
+        height: 60px;
+        font-size: 17px;
+    }
+    /*computer icons-start */
+    #rock{
+        width: 90px;
+        height: 80px;
+    }
+    #paper{
+        width: 90px;
+        height: 80px;
+    }
+    #scissors{
+        width: 90px;
+        height: 80px;
+    }
+    /*computer icons-ends*/
+    .buttons{
+        width: 90px;
+        height: 80px;
+    }
+    #result{
+        width:250px;
+    }
+}
+@media only screen and (max-width:768px){
+    .start-buttons{
+        width: 150px;
+        margin:15px;
+        font-size:13px;
+    }
+    .score{
+        width: 60px;
+        height: 40px;
+        font-size: 15px;
+    }
+    /*computer icons-start */
+    #rock{
+        width: 70px;
+        height: 50px;
+    }
+    #paper{
+        width: 70px;
+        height: 50px;
+    }
+    #scissors{
+        width: 70px;
+        height: 50px;
+    }
+    /*computer icons-ends*/
+    .buttons{
+        width: 70px;
+        height: 50px;
+        font-size:40px;
+    }
+    .grid-player1{
+        font-size:45px;
+    }
+    #result{
+        font-size: 14px;
+        width:200px;
+    }
+    #iconsComputer{
+        font-size:40px;
+    }
+    .grid-comp{
+        font-size:55px;
+    }
+}
+@media only screen and (max-width:568px){
+    .grid-container {
+        grid-template-areas: 
+        ' header header header '
+        'player-icons start icons-comp'
+        'player-icons result icons-comp'
+        'score-player result score-computer'
+        'footer footer footer';
+    }
+    .grid-player1{
+        display:none;
+    }
+    .grid-comp{
+        display:none;
     }
 }
