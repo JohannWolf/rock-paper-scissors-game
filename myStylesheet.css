@@ -131,23 +131,20 @@ a :visited{
 .footNote{
     font-size:13px;
 }
+.animClass{
+    animation-name: compAnimation;
+    animation-duration: .5s;
+    animation-iteration-count: 2;
+}
 /*animation for computer icons*/
 @keyframes compAnimation{
     0%{color:black;
     }
-    15%{
+    20%{
         background-color:blue;
         border-style: solid;
         border-color: blue;
         color: white;
-    }
-    90%{
-        background-color:white;
-        color: black;
-    }
-    100%{
-        background-color:white;
-        color: black;
     }
 }
 /*Responsive*/

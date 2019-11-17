@@ -25,6 +25,7 @@ function restartGame(click){
         document.getElementById("iconsComputer").style.display="block";
         document.getElementById("result").style.fontSize="20px";
         document.getElementById("result").innerHTML="";
+        r=0;
     }else{
         /*if end is clicked or round is 7 then calls function to show the final result*/
         if(countWin > countLose){
@@ -59,76 +60,64 @@ function randomComp(get){/*gets comes from html*/
     }else {
         compSelection="scissors" ;
     }
+    /*function to count rounds with delay to allow time for animation*/
+    roundCount();
     /*function to compare the selction of user vs computer*/
     playGame(userSelection,compSelection);
-    /*function to count rounds with delay to allow time for animation*/
-    setTimeout(roundCount,1600);
 }
 /*this function compares the selections and activates the animation*/
 function playGame (user,computer){
     if (user===computer){
-        /*assigns animation to the right icon and make sure to make it run*/
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        /*function to pause animation is called after 1s*/
-        setTimeout(animationRestart, 1600);
+        /*function to apply animation*/
+        funcForAnimation(computer);
         /*round result is shown*/
         document.getElementById("result").innerHTML="Draw!<br> Computer selected "+computer+" too";
     }   else if (user==="rock" && computer === "scissors"){
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Win!<br>"+ user + " beats "+ computer;
         /*win count increses when user wins and is added to the score*/
         ++countWin;
         document.getElementById("playerCount").innerHTML=countWin;
     }else if (user==="rock" && computer==="paper"){
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Lose!<br>"+ computer + " beats "+ user;
         /*lose count increses when user loses and is added to the score*/
         ++countLose;
         document.getElementById("computerCount").innerHTML=countLose;
     }else if (user==="scissors" && computer==="rock"){
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Lose!<br>"+ computer + " beats "+ user;
         ++countLose;
         document.getElementById("computerCount").innerHTML=countLose;
     }else if (user==="scissors" && computer==="paper"){
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Win!<br>"+ user + " beats "+ computer;
         ++countWin;
         document.getElementById("playerCount").innerHTML=countWin;
     }else if (user==="paper" && computer==="rock"){
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Win!<br>"+ user + " beats "+ computer;
         ++countWin;
         document.getElementById("playerCount").innerHTML=countWin;
     }else {
-        document.getElementById(computer).style.animation ="compAnimation .8s infinite";
-        document.getElementById(computer).style.animationPlayState="running";
-        setTimeout(animationRestart, 1600);
+        funcForAnimation(computer);
         document.getElementById("result").innerHTML="You Lose!<br>"+ computer + " beats "+ user;
         ++countLose;
         document.getElementById("computerCount").innerHTML=countLose;
     }
-    /*fucntion to pause the animation*/
-function animationRestart(){
-    document.getElementById(computer).style.animationPlayState="paused";
-}
 }
 /*function to count the rounds*/
 function roundCount(){
     ++r;
     if(r==7){
-        restartGame("over");
-        r=0;
+        setTimeout(restartGame,1800);
     }
+}
+/*function to apply animation*/
+function funcForAnimation(funcTarget){
+        document.getElementById(funcTarget).classList.add("animClass");
+        setTimeout(classRemover,1100,funcTarget);
+    }
+function classRemover(funcTarget){
+    document.getElementById(funcTarget).classList.remove("animClass");
 }
